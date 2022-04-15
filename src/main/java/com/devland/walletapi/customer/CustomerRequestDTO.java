@@ -12,7 +12,6 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 public class CustomerRequestDTO {
-    private BigInteger id;
 
     private String name;
 
@@ -23,7 +22,7 @@ public class CustomerRequestDTO {
     private WalletRequestDTO walletRequestDTO;
 
     public Customer convertToEntity(){
-        return Customer.builder().id(this.id)
+        return Customer.builder()
                 .name(this.name)
                 .NIK(this.NIK)
                 .dateOfBirth(this.dateOfBirth)
