@@ -1,10 +1,7 @@
 package com.devland.walletapi.wallet;
 
-import com.devland.walletapi.transaction.Transaction;
 import lombok.*;
 
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -12,12 +9,11 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class WalletRequestDTO {
-    private Long id;
 
     private double walletBalance;
 
     public Wallet convertToEntity(){
-        return Wallet.builder().id(this.id)
+        return Wallet.builder()
                 .walletBalance(this.walletBalance).build();
     }
 }
