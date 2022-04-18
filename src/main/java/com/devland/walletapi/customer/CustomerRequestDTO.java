@@ -4,6 +4,7 @@ import com.devland.walletapi.wallet.WalletRequestDTO;
 import lombok.*;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -13,16 +14,18 @@ import java.util.Date;
 @Builder
 public class CustomerRequestDTO {
 
+    private Long id;
+
     private String name;
 
     private String NIK;
 
-    private Date dateOfBirth;
+    private LocalDateTime dateOfBirth;
 
     private WalletRequestDTO walletRequestDTO;
 
     public Customer convertToEntity(){
-        return Customer.builder()
+        return Customer.builder().id(this.id)
                 .name(this.name)
                 .NIK(this.NIK)
                 .dateOfBirth(this.dateOfBirth)
