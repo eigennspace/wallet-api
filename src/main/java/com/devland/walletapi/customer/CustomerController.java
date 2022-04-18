@@ -1,5 +1,8 @@
 package com.devland.walletapi.customer;
 
+import com.devland.walletapi.transaction.Transaction;
+import com.devland.walletapi.transaction.TransactionRequestDTO;
+import com.devland.walletapi.transaction.TransactionResponseDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,8 +38,8 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(customerResponseDTO);
     }
 
-    @GetMapping("/customer/{id}")
-    public ResponseEntity<CustomerResponseDTO> getCustomer(@PathVariable("id")BigInteger id){
+    @GetMapping("/customer/wallet/{id}")
+    public ResponseEntity<CustomerResponseDTO> getCustomer(@PathVariable("id") Long id){
         Customer customer = customerService.getOne(id);
 
         CustomerResponseDTO customerResponseDTO = customer.convertToResponse();
@@ -44,14 +47,19 @@ public class CustomerController {
         return ResponseEntity.ok(customerResponseDTO);
     }
 
-    @PutMapping("/customer/{id}")
-    public ResponseEntity<CustomerResponseDTO> updateCustomer(@PathVariable("id")BigInteger id, @RequestBody CustomerRequestDTO customerRequestDTO){
-        Customer customer =customerRequestDTO.convertToEntity();
-        customer.setId(id);
+    @PostMapping("/customer/{id}/transfer")
+    public ResponseEntity<TransactionResponseDTO> transfer(@PathVariable("id") Long id, @RequestBody TransactionRequestDTO transactionRequestDTO){
+       transactionRequestDTO.setWalletId1(id);
+        this.customerService.transfer(transactionRequestDTO);
 
-        Customer updatedCustomer = customerService.updateCustomer(customer);
+        TransactionResponseDTO transactionResponseDTO = TransactionResponseDTO.builder()
+                .walletId1(transactionRequestDTO.getWalletId1())
+                .walletId2(transactionRequestDTO.getWalletId2())
+                .amount(transactionRequestDTO.getAmount())
+                .transactionDescription(transactionRequestDTO.getTransactionDescription())
+                .build();
 
-        return ResponseEntity.ok(updatedCustomer.convertToResponse());
+       return ResponseEntity.ok(transactionResponseDTO);
 
     }
 
