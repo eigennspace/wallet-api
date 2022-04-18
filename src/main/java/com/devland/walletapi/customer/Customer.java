@@ -18,13 +18,13 @@ import java.util.Date;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     private String name;
 
     private String NIK;
 
-    private Date dateOfBirth;
+    private LocalDateTime dateOfBirth;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
