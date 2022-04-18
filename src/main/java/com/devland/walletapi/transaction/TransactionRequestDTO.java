@@ -1,24 +1,18 @@
-package com.devland.walletapi.customer;
+package com.devland.walletapi.transaction;
 
-import com.devland.walletapi.transaction.TransactionType;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TransferRequestDTO {
+public class TransactionRequestDTO {
     private Long walletId1;
 
     private Long walletId2;
 
-    private TransactionType transactionType;
-
     private String transactionDescription;
 
     private double amount;
-
 }
