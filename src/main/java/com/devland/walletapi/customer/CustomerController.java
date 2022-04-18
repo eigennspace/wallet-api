@@ -1,6 +1,5 @@
 package com.devland.walletapi.customer;
 
-import com.devland.walletapi.transaction.Transaction;
 import com.devland.walletapi.transaction.TransactionRequestDTO;
 import com.devland.walletapi.transaction.TransactionResponseDTO;
 import lombok.AllArgsConstructor;
@@ -8,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
 

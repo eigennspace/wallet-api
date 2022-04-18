@@ -2,9 +2,6 @@ package com.devland.walletapi.wallet;
 
 import lombok.*;
 
-import java.math.BigInteger;
-
-
 @Getter
 @Setter
 @NoArgsConstructor

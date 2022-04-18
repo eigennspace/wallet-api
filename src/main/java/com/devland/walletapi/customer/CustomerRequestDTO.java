@@ -3,9 +3,7 @@ package com.devland.walletapi.customer;
 import com.devland.walletapi.wallet.WalletRequestDTO;
 import lombok.*;
 
-import java.math.BigInteger;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter
 @Setter
