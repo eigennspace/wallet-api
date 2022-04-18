@@ -8,20 +8,19 @@ import lombok.Setter;
 
 import java.math.BigInteger;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @Builder
 public class CustomerResponseDTO {
-    private BigInteger id;
+    private Long id;
 
     private String name;
 
     private String NIK;
 
-    private Date dateOfBirth;
+    private LocalDateTime dateOfBirth;
 
     private LocalDateTime customerCreatedAt;
 
