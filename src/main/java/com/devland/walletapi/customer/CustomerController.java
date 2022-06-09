@@ -1,7 +1,9 @@
 package com.devland.walletapi.customer;
 
+import com.devland.walletapi.transaction.Transaction;
 import com.devland.walletapi.transaction.TransactionRequestDTO;
 import com.devland.walletapi.transaction.TransactionResponseDTO;
+import com.devland.walletapi.transaction.TransactionType;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,6 +47,11 @@ public class CustomerController {
         return ResponseEntity.ok(customerResponseDTO);
     }
 
+    @PostMapping("/customer/bebas")
+    public List<Transaction> ngambilTransaksi (@RequestBody Transaction transaction){
+        return customerService.ngambilTransaksi(transaction.getAmount(), transaction.getId());
+    }
+
     @PostMapping("/customer/{id}/transfer")
     public ResponseEntity<TransactionResponseDTO> transfer(@PathVariable("id") Long id, @RequestBody TransactionRequestDTO transactionRequestDTO){
        transactionRequestDTO.setWalletId1(id);
@@ -58,7 +65,6 @@ public class CustomerController {
                 .build();
 
        return ResponseEntity.ok(transactionResponseDTO);
-
     }
 
 }

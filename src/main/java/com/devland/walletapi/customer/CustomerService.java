@@ -9,6 +9,7 @@ import com.devland.walletapi.wallet.Wallet;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,10 @@ public class CustomerService {
 
     public List<Customer> getAll(){
         return this.customerRepository.findAll();
+    }
+
+    public List<Transaction> ngambilTransaksi(double amount, BigInteger id){
+        return this.transactionRepository.ngambilTransaksi(amount, id);
     }
 
     public Customer createCustomer(Customer customer){
