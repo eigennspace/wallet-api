@@ -15,10 +15,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
+
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     @Enumerated(EnumType.STRING)
     private TransactionType transactionType;

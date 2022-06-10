@@ -23,7 +23,7 @@ public class CustomerService {
         return this.customerRepository.findAll();
     }
 
-    public List<Transaction> ngambilTransaksi(double amount, BigInteger id){
+    public List<Transaction> ngambilTransaksi(double amount, Long id){
         return this.transactionRepository.ngambilTransaksi(amount, id);
     }
 

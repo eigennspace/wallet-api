@@ -13,16 +13,16 @@ import java.time.LocalDateTime;
 
 @SpringBootTest
 public class CustomerServiceTest {
-    @Autowired
-    private CustomerService customerService;
-
-    @MockBean
-    private CustomerRepository customerRepository;
-    private TransactionRepository transactionRepository;
-
-    @Test
-    void getAll_shouldCreateTransferOfCustomer_whenInvoked(){
-        LocalDateTime dateTime = LocalDateTime.of(2022, 04,17,07,07,07);
-
-    }
+//    @Autowired
+//    private CustomerService customerService;
+//
+//    @MockBean
+//    private CustomerRepository customerRepository;
+//    private TransactionRepository transactionRepository;
+//
+//    @Test
+//    void getAll_shouldCreateTransferOfCustomer_whenInvoked(){
+//        LocalDateTime dateTime = LocalDateTime.of(2022, 04,17,07,07,07);
+//
+//    }
 }
